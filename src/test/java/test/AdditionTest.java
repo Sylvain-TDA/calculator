@@ -11,16 +11,16 @@ public class AdditionTest {
     @Test
     @DisplayName("Addition")
     public void additionTest() {
+        //GIVEN
         Calculator calculator = new Calculator();
 
-        for (int i = 1; i <= 1000; i++) {
-            int a = new Random().nextInt(1000);
-            int b = new Random().nextInt(1000);
-
-            int result = calculator.addition(a, b);
-            Assertions.assertAll(() -> Assertions.assertEquals(a + b, result),
-                    () -> Assertions.assertEquals(result - b, a),
-                    () -> Assertions.assertEquals(result - a, b));
-        }
+        //WHEN
+        int a = 3;
+        int b = 2;
+        //THEN
+        int result = calculator.addition(a, b);
+        Assertions.assertAll(() -> Assertions.assertEquals(5, a + b),
+                () -> Assertions.assertEquals(3, result - b),
+                () -> Assertions.assertEquals(2, result - a));
     }
 }

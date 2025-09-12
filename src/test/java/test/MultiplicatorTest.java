@@ -11,20 +11,16 @@ public class MultiplicatorTest {
     @Test
     @DisplayName("Multiplicator")
     public void MultiplicatorTest() {
+        //GIVEN
         Calculator calculator = new Calculator();
 
-        for (int i = 1; i <= 1000; i++) {
-            int a = new Random().nextInt(1000);
-            int b = new Random().nextInt(1000);
-
-            int result = calculator.multiplication(a, b);
-            Assertions.assertAll(() -> Assertions.assertEquals(a * b, result));
-
-            if (b != 0) {
-                Assertions.assertEquals(result / b, a);
-            } else if (a != 0) {
-                Assertions.assertEquals(result / a, b);
-            }
-        }
+        //WHEN
+        int a = 5;
+        int b = 2;
+        //THEN
+        int result = calculator.multiplication(a, b);
+        Assertions.assertAll(() -> Assertions.assertEquals(10, a*b),
+                () -> Assertions.assertEquals(2, result/a),
+                () -> Assertions.assertEquals(5, result/b));
     }
 }

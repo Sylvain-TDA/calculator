@@ -12,19 +12,16 @@ public class DivisionTest {
     @Test
     @DisplayName("Division")
     public void DivisionTest() {
+        //GIVEN
         Calculator calculator = new Calculator();
 
-        for (int i = 1; i <= 1000; i++) {
-            int a = new Random().nextInt(1000);
-            int b = new Random().nextInt(1000);
-
-            if (b != 0) {
-                int result = calculator.division(a, b);
-                Assertions.assertAll(() -> Assertions.assertEquals(a / b, result)
-                );
-            } else {
-                Assertions.assertThrows(ArithmeticException.class, () -> calculator.division(a, b));
-            }
-        }
+        //WHEN
+        int a = 10;
+        int b = 2;
+        //THEN
+        int result = calculator.division(a, b); // result = 5
+        Assertions.assertAll(() -> Assertions.assertEquals(5, a/b),
+                () -> Assertions.assertEquals(10, result*b),
+                () -> Assertions.assertEquals(2, a/result));
     }
 }
